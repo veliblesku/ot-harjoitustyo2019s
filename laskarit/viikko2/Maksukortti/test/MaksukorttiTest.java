@@ -71,7 +71,6 @@ public class MaksukorttiTest {
 
     @Test
     public void pystyyOstamaanEdullisenLounaanKunRahaaVainEdullisenLounaanVerran() {
-
         Maksukortti kortti2 = new Maksukortti(2.5);
         kortti2.syoEdullisesti();
         assertEquals("Kortilla on rahaa 0.0 euroa", kortti2.toString());
