@@ -20,11 +20,11 @@ Testit suoritetaan komennlla
 
 Testikattavuusraportti komennolla
 
-*mvn test jacoco:report
+* mvn test jacoco:report
 
 Raportti löytyy.... Tämä tulossa
 
 ## Ohjelman voi ajaa komentoriviltä komennolla
 
-# mvn compile exec:java -Dexec.mainClass=pakkaus.Paaohjelma
+* mvn compile exec:java -Dexec.mainClass=pakkaus.Paaohjelma
 
