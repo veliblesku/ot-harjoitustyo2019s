@@ -26,5 +26,5 @@ Raportti löytyy.... Tämä tulossa
 
 ## Ohjelman voi ajaa komentoriviltä komennolla
 
-* mvn compile exec:java -Dexec.mainClass=pakkaus.Paaohjelma
+* mvn compile exec:java -Dexec.mainClass=budjetointisovellus.ui.BudgetingUI
 
