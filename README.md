@@ -1,7 +1,4 @@
-# Ohjelmistotekniikan harjoitustyö
-## Tehtävät
-
-### Budjetointisovellus
+# Budjetointisovellus
 Sovelluksen avulla käyttäjä voi tarkastella omaa kulutustaan kuukausi ja vuositasolla. Käyttäjä voi syöttää tulonsa ja menonsa sovellukseen, jonka jälkeen sovellus kertoo paljon budjetista on käytettävissä.
 
 
