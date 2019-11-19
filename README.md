@@ -1,14 +1,8 @@
 # Ohjelmistotekniikan harjoitustyö
 ## Tehtävät
-### Viikko 1
 
-* [gitlog.txt](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/laskarit/viikko1/gitlog.txt)
-* [komentorivi.txt](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/laskarit/viikko1/komentorivi.txt)
-
-### Viikko 2
-
-* [laskarit](https://github.com/veliblesku/ot-harjoitustyo2019s/tree/master/laskarit/viikko2)
-* [testikattavuus kuva](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/laskarit/viikko2/testikattavuus.png)
+### Budjetointisovellus
+Sovelluksen avulla käyttäjä voi tarkastella omaa kulutustaan kuukausi ja vuositasolla. Käyttäjä voi syöttää tulonsa ja menonsa sovellukseen, jonka jälkeen sovellus kertoo paljon budjetista on käytettävissä.
 
 
 ### Dokumentaatio
@@ -17,5 +11,20 @@
 * [Vaatimusmäärittely](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 
+### Komentorivikomennot
 
+## Testaus
+
+Testit suoritetaan komennlla 
+* mvn test
+
+Testikattavuusraportti komennolla
+
+*mvn test jacoco:report
+
+Raportti löytyy.... Tämä tulossa
+
+## Ohjelman voi ajaa komentoriviltä komennolla
+
+# mvn compile exec:java -Dexec.mainClass=pakkaus.Paaohjelma
 
