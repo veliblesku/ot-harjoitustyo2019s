@@ -6,6 +6,7 @@ Sovelluksen avulla käyttäjä voi tarkastella omaa kulutustaan kuukausi ja vuos
 
 * [Työaikakirjanpito](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 * [Vaatimusmäärittely](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/vaatimusmaarittely.md)
+* [Arkkitehtuurikuvaus](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/arkkitehtuuri.md)
 
 
 ### Komentorivikomennot
