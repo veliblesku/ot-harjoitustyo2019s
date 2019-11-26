@@ -26,18 +26,12 @@ public class ExpensesTest {
 
     @Before
     public void setUp() {
-        expenses.setBills(600);
-        expenses.setFood(210);
-        expenses.setEntertainment(200);
-        expenses.setLoan(20000);
+        expenses.setTotalExpenses(12210.1);
     }
 
     @Test
     public void budjettiOnAlustettuOikein() {
-        assertEquals(600.0, expenses.getBills(), 0.00001);
-        assertEquals(200.0, expenses.getEntertainment(), 0.00001);
-        assertEquals(210.0, expenses.getFood(), 0.00001);
-        assertEquals(20000.0, expenses.getLoan(), 0.00001);
+        assertEquals(12210.1, expenses.getTotalExpenses(), 0.00001);
     }
 
 }

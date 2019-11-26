@@ -28,24 +28,14 @@ public class UserTest {
 
     @Before
     public void setUp() {
-        this.income.setInvestments(1000.0);
-        this.income.setPayroll(2600.0);
-        this.income.setSavings(12000);
-        this.income.setSellingStuff(20);
-        expenses.setBills(600);
-        expenses.setFood(200);
-        expenses.setEntertainment(200);
-        expenses.setLoan(20000);
-        this.user = new User(1, "Jani",new Budget(income, expenses));
-
+        this.income.setTotalIncome(12123.4);
+        expenses.setTotalExpenses(11341.3);
+        this.user = new User(1, "Jani", new Budget(income, expenses));
     }
 
     @Test
     public void budjettiOnAlustettuOikein() {
-        assertEquals(15620.0, user.getBudget().getTotalIncome(), 0.00001);
-        assertEquals(15620.0, user.getBudget().getTotalIncome(), 0.00001);
-        assertEquals(15620.0, user.getBudget().getTotalIncome(), 0.00001);
-        assertEquals(15620.0, user.getBudget().getTotalIncome(), 0.00001);
-
+        assertEquals(12123.4, user.getBudget().getTotalIncome(), 0.00001);
+        assertEquals(11341.3, user.getBudget().getTotalExpenses(), 0.00001);
     }
 }

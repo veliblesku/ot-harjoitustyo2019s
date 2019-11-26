@@ -5,9 +5,10 @@
  */
 
 import budjetointisovellus.budjetointisovellus.domain.Budget;
-import budjetointisovellus.budjetointisovellus.domain.Expenses;
-import budjetointisovellus.budjetointisovellus.domain.Income;
 import budjetointisovellus.budjetointisovellus.domain.User;
+import budjetointisovellus.budjetointisovellus.domain.Income;
+import budjetointisovellus.budjetointisovellus.domain.Expenses;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,27 +22,18 @@ import static org.junit.Assert.*;
  */
 public class BudgetTest {
 
-    Income income = new Income();
-    Expenses expenses = new Expenses();
     Budget budget;
+    User user;
 
     @Before
     public void setUp() {
-        this.income.setInvestments(1000.0);
-        this.income.setPayroll(2600.0);
-        this.income.setSavings(12000);
-        this.income.setSellingStuff(20);
-        expenses.setBills(600);
-        expenses.setFood(200);
-        expenses.setEntertainment(200);
-        expenses.setLoan(20000);
-        this.budget = new Budget(income,expenses);
-
+        budget = new Budget(new Income(3000),new Expenses(2000));
     }
 
     @Test
     public void budjettiOnAlustettuOikein() {
-        assertEquals(15620.0, budget.getTotalIncome(), 0.00001);
+        assertEquals(3000.0, budget.getTotalIncome(), 0.00001);
+        assertEquals(2000.0, budget.getTotalExpenses(), 0.00001);
     }
 
 }

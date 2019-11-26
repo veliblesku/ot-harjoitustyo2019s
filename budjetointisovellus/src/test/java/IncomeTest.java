@@ -25,18 +25,12 @@ public class IncomeTest {
 
     @Before
     public void setUp() {
-        income.setInvestments(1000.0);
-        income.setPayroll(2600.0);
-        income.setSavings(200);
-        income.setSellingStuff(50);
+        income.setTotalIncome(12021.3);
     }
 
     @Test
     public void budjettiOnAlustettuOikein() {
-        assertEquals(1000.0, income.getInvestments(), 0.00001);
-        assertEquals(2600.0, income.getPayroll(), 0.00001);
-        assertEquals(200.0, income.getSavings(), 0.00001);
-        assertEquals(50.0, income.getSellingStuff(), 0.00001);
+        assertEquals(12021.3, income.getTotalIncome(), 0.00001);
     }
 
 }

@@ -22,13 +22,5 @@ import lombok.Builder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Income {
-    private double payroll;
-    private double sellingStuff;
-    private double investments;
-    private double savings;
-    //@Setter(AccessLevel.PACKAGE)
-    //private double totalIncome;
-    
-
-       
+    private double totalIncome;
 }

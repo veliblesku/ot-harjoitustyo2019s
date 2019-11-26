@@ -5,25 +5,37 @@
  */
 package budjetointisovellus.ui;
 
-import java.sql.SQLException;
-import static javafx.application.Application.launch;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import javafx.application.Application;
+import java.sql.*;
 
+import budjetointisovellus.dao.DBUserDao;
+import static javafx.application.Application.launch;
 
 /**
  *
  * @author blesku
  */
-public class BudgetingUI extends Application{
+public class BudgetingUI extends Application {
 
     private Label menuLabel = new Label();
 
@@ -31,6 +43,11 @@ public class BudgetingUI extends Application{
     private Scene newUserScene;
     private Scene loginScene;
 
+    @Override
+    public void init() throws SQLException {
+
+        DBUserDao userDao = new DBUserDao();
+    }
 
     @Override
     public void start(Stage primaryStage) {
@@ -43,21 +60,34 @@ public class BudgetingUI extends Application{
 
         Label loginMessage = new Label();
 
-        
         Button loginButton = new Button("login");
         Button createButton = new Button("create new user");
         inputPane.getChildren().addAll(loginLabel, usernameInput, loginButton, createButton);
 
-        
-        // tänne  polut kuntoon
-        
         loginButton.setOnAction(e -> {
             String username = usernameInput.getText();
             System.out.println("Username on " + username);
             menuLabel.setText(username + " logged in...");
+
+            if (username == "jani") {
+                loginMessage.setText("");
+                System.out.println("haku onnistui");
+                primaryStage.setScene(budgetingScene);
+                usernameInput.setText("");
+            } else {
+                loginMessage.setText("use does not exist");
+                loginMessage.setTextFill(Color.RED);
+            }
         });
 
+        createButton.setOnAction(e -> {
+            usernameInput.setText("");
+            primaryStage.setScene(newUserScene);
+//            try {
+//            } catch (SQLException s){
+//            }
 
+        });
 
         loginPane.getChildren().addAll(loginMessage, inputPane, loginButton, createButton);
 
@@ -93,6 +123,9 @@ public class BudgetingUI extends Application{
         primaryStage.show();
     }
 
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
