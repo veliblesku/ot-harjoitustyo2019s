@@ -6,7 +6,7 @@
 | 16.11. | 8h |Olioiden määrittely, Ui:n alottelua                              |
 | 17.11. | 9h |UI:n määritystä, Testien määritystä                              |
 | 19.11. | 4h |UI:n määritystä, Testien määritystä, github push                          |
-| 24.11. | 8h |UI: määritystä -> create account, olioiden uudelleen määritys: yksinkertaistettu     |
-| 26.11. | 8h |Ulkoisen tietokannan määritystä, UI:n määritystä -> mikään ei toimi     |
+| 24.11. | 8h |UI: määritystä -> create account, olioiden uudelleen määritys-> testien uudelleen määritys    |
+| 26.11. | 8h |Ulkoisen tietokannan määritystä(ei toimi), UI:n määritystä   |
 | Yht. | 40h|                                                                            |
 
