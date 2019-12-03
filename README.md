@@ -13,19 +13,32 @@ Sovelluksen avulla käyttäjä voi tarkastella omaa kulutustaan kuukausi ja vuos
 
 ## Testaus
 
-Testit suoritetaan komennlla 
-* mvn test
+Testit suoritetaan komennlla
+```
+mvn test
+```
 
 Testikattavuusraportti komennolla
+```
+mvn test jacoco:report
+```
 
-* mvn test jacoco:report
-
-Raportti löytyy.... Tämä tulossa
 
 ## Releaset
 * [Viikko 5](https://github.com/veliblesku/ot-harjoitustyo2019s/releases/tag/viikko5)
 
+## Jarin generointi
+```
+mvn package
+```
+
+## Checkstyle
+[checkstyle.html]()
+```
+mvn jxr:jxr checkstyle:checkstyle
+```
+
 ## Ohjelman voi ajaa komentoriviltä komennolla
 
-* mvn compile exec:java -Dexec.mainClass=budjetointisovellus.ui.BudgetingUI
+* mvn compile exec:java -Dexec.mainClass=budjetointisovellus.budjetointisovellus.domain.MainForTesting
 
