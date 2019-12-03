@@ -12,7 +12,7 @@ import budjetointisovellus.budjetointisovellus.domain.User;
  * @author blesku
  */
 public interface UserDao<T,K> {
-    void create(T object) throws SQLException;
+    void create(T entity) throws SQLException;
     T read(K key) throws SQLException;
     T update(T object) throws SQLException;
     void delete(K key) throws SQLException;

@@ -10,17 +10,20 @@ package budjetointisovellus.budjetointisovellus.domain;
  * @author blesku
  */
 
+import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.AccessLevel;
 import lombok.Builder;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
+@Entity
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Income {
+public class Income extends AbstractPersistable<Long> {
     private double totalIncome;
 }

@@ -9,18 +9,25 @@ package budjetointisovellus.budjetointisovellus.domain;
  *
  * @author blesku
  */
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
+@Entity
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Budget {
-
+public class Budget extends AbstractPersistable<Long> {
+    @OneToOne(cascade = {CascadeType.ALL})
     private Income income;
+    @OneToOne(cascade = {CascadeType.ALL})
     private Expenses expenses;
 
     public double getTotalIncome() {

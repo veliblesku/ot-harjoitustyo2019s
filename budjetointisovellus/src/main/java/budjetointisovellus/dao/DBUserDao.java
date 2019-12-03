@@ -12,6 +12,9 @@ import budjetointisovellus.budjetointisovellus.domain.Budget;
 import budjetointisovellus.dao.UserDao;
 import budjetointisovellus.budjetointisovellus.domain.Income;
 import budjetointisovellus.budjetointisovellus.domain.Expenses;
+import budjetointisovellus.budjetointisovellus.domain.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 
 /**
  *
@@ -19,12 +22,22 @@ import budjetointisovellus.budjetointisovellus.domain.Expenses;
  */
 public class DBUserDao implements UserDao {
 
-    private String url = "postgres://eznwbwkq:8KG9v364qRAbidnHOA7FIlFclY9ziH4j@balarama.db.elephantsql.com:5432/eznwbwkq";
-    private String apikey = "51e59c26-93d7-48b2-8c45-6b3a5108b866";
-    private String user = "eznwbwkq";
-    private String pw = "8KG9v364qRAbidnHOA7FIlFclY9ziH4j";
+//    @Autowired
+//    private UserRepository itemRepository;
     private List<User> users;
 
+//    @Autowired
+//    private UserDao userdao;
+//    ////////
+//    @Override
+//    public List<User> list() throws SQLException {
+//        return itemRepository.findAll();
+//    }
+//
+//    public void create(User user) throws SQLException {
+//        itemRepository.save(user);
+//    }
+    //// ^^^^^^^^^
     @Override
     public List<User> list() throws SQLException {
         return users;
@@ -56,8 +69,4 @@ public class DBUserDao implements UserDao {
     public void delete(Object key) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
-
-
 }

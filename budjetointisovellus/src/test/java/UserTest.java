@@ -25,12 +25,13 @@ public class UserTest {
     Income income = new Income();
     Expenses expenses = new Expenses();
     Budget budget;
+    
 
     @Before
     public void setUp() {
         this.income.setTotalIncome(12123.4);
         expenses.setTotalExpenses(11341.3);
-        this.user = new User(1, "Jani", new Budget(income, expenses));
+        this.user = new User("Jani", "salasana", new Budget(income, expenses));
     }
 
     @Test
