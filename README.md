@@ -23,7 +23,7 @@ Testikattavuusraportti komennolla
 Raportti löytyy.... Tämä tulossa
 
 ## Releaset
-* [Viikko 5] (https://github.com/veliblesku/ot-harjoitustyo2019s/releases/tag/viikko5)
+* [Viikko 5](https://github.com/veliblesku/ot-harjoitustyo2019s/releases/tag/viikko5)
 
 ## Ohjelman voi ajaa komentoriviltä komennolla
 
