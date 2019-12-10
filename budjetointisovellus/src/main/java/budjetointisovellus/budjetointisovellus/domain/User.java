@@ -28,6 +28,7 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @AllArgsConstructor
 @Entity
 public class User extends AbstractPersistable<Long> {
+
     private String name;
     private String password;
     @OneToOne(cascade = {CascadeType.ALL})

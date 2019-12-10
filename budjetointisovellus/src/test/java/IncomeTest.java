@@ -33,4 +33,21 @@ public class IncomeTest {
         assertEquals(12021.3, income.getTotalIncome(), 0.00001);
     }
 
+    @Test
+    public void setIncomeToimii() {
+        income.setTotalIncome(2000.0);
+        assertEquals(2000.0, income.getTotalIncome(), 0.000012);
+    }
+
+    @Test
+    public void getIncomeToimii() {
+        assertEquals(income.getTotalIncome(), income.getTotalIncome(), 0.000012);
+    }
+
+    @Test
+    public void getIncomeToStringToimii() {
+
+        assertEquals("Income(totalIncome=12021.3)", income.toString());
+    }
+
 }

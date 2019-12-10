@@ -19,12 +19,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
+
+/**
+ * Budget luokka ja sen konstruktorit.
+ * 
+ *
+ */
 @Entity
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Budget extends AbstractPersistable<Long> {
+
     @OneToOne(cascade = {CascadeType.ALL})
     private Income income;
     @OneToOne(cascade = {CascadeType.ALL})

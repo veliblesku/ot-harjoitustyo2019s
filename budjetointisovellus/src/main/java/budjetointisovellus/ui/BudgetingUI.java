@@ -28,14 +28,14 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.application.HostServices;
 import java.sql.*;
-
-import budjetointisovellus.dao.DBUserDao;
 import static javafx.application.Application.launch;
 
 import budjetointisovellus.budjetointisovellus.domain.User;
 import budjetointisovellus.budjetointisovellus.domain.Income;
 import budjetointisovellus.budjetointisovellus.domain.Expenses;
 import budjetointisovellus.budjetointisovellus.domain.Budget;
+import budjetointisovellus.budjetointisovellus.domain.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -43,31 +43,30 @@ import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.GenericApplicationContext;
 
-
-
 /**
  *
  * @author blesku
  */
-
 public class BudgetingUI extends Application {
 
     //Income income = new Income(2000);
     private Label menuLabel = new Label();
-    
+
     private Scene budgetingScene;
     private Scene newUserScene;
     private Scene loginScene;
     private Scene loggedInScene;
     private ConfigurableApplicationContext context;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void init() throws SQLException {
-        ApplicationContextInitializer<GenericApplicationContext> initializer =
-                ac->{
-                  ac.registerBean(Application.class, () -> BudgetingUI.this);
-                  ac.registerBean(Parameters.class, this::getParameters);
-                  ac.registerBean(HostServices.class, this::getHostServices);
+        ApplicationContextInitializer<GenericApplicationContext> initializer
+                = ac -> {
+                    ac.registerBean(Application.class, () -> BudgetingUI.this);
+                    ac.registerBean(Parameters.class, this::getParameters);
+                    ac.registerBean(HostServices.class, this::getHostServices);
                 };
         this.context = new SpringApplicationBuilder()
                 .sources(budjetointisovellus.budjetointisovellus.domain.MainForTesting.class)
@@ -76,28 +75,34 @@ public class BudgetingUI extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
 
         /// Login Scene
-        
-        VBox loginPane = new VBox(10);
-        HBox inputPane = new HBox(10);
+        HBox loginPane = new HBox(10);
+        VBox inputPane = new VBox(10);
         loginPane.setPadding(new Insets(10));
         Label loginLabel = new Label("username");
         TextField usernameInput = new TextField();
+        Label pwLabel = new Label("password");
+        TextField passwordInput = new TextField();
 
         Label loginMessage = new Label();
 
         Button loginButton = new Button("login");
         Button createButton = new Button("create new user");
-        inputPane.getChildren().addAll(loginLabel, usernameInput, loginButton, createButton);
+        inputPane.getChildren().addAll(loginLabel, usernameInput, pwLabel, passwordInput, loginButton, createButton);
 
         loginButton.setOnAction(e -> {
             String username = usernameInput.getText();
+            String password = passwordInput.getText();
+
             System.out.println("Username on " + username);
             menuLabel.setText(username + " logged in...");
+            System.out.println(userRepository.findAll());
+            System.out.println("finbyname");
+            System.out.println(userRepository.findByName(username).getName());
 
-            if (username.equals("as")) {
+            if (userRepository.findByName(username).getName().equals(username) && userRepository.findByName(username).getPassword().equals(password)) {
                 loginMessage.setText("");
                 System.out.println("haku onnistui");
                 primaryStage.setScene(budgetingScene);
@@ -116,15 +121,12 @@ public class BudgetingUI extends Application {
 //            }
 
         });
-        
 
         loginPane.getChildren().addAll(loginMessage, inputPane, loginButton, createButton);
 
-        loginScene = new Scene(loginPane, 300, 250);
-        
-        
-        ///// New User Scene__ __ __ 
+        loginScene = new Scene(loginPane, 400, 200);
 
+        ///// New User Scene__ __ __ 
         VBox newUserPanel = new VBox(10);
 
         HBox newUsernamePanel = new HBox(10);
@@ -134,24 +136,46 @@ public class BudgetingUI extends Application {
         newUsernameLabel.setPrefWidth(100);
         newUsernamePanel.getChildren().addAll(newUsernameLabel, newUsernameInput);
 
-        HBox newNamePane = new HBox(10);
-        newNamePane.setPadding(new Insets(10));
-        TextField newNameInput = new TextField();
-        Label newNameLabel = new Label("password");
-        newNameLabel.setPrefWidth(100);
-        newNamePane.getChildren().addAll(newNameLabel, newNameInput);
+        HBox newPwPane = new HBox(10);
+        newPwPane.setPadding(new Insets(10));
+        TextField newPwInput = new TextField();
+        Label newPwLabel = new Label("password");
+        newPwLabel.setPrefWidth(100);
+        newPwPane.getChildren().addAll(newPwLabel, newPwInput);
 
         Label userCreationMessage = new Label();
 
-        Button createNewUserButton = new Button("create");
+        Button createNewUserButton = new Button("jari");
         createNewUserButton.setPadding(new Insets(10));
 
-        newUserPanel.getChildren().addAll(userCreationMessage, newUsernamePanel, newNamePane, createNewUserButton);
+        createNewUserButton.setOnAction(e -> {
+            String username = newUsernameInput.getText();
+            String pw = newPwInput.getText();
+            System.out.println("username = " + username);
+            System.out.println("pw = " + pw);
 
-        newUserScene = new Scene(newUserPanel, 300, 250);
+            try {
+                if (userRepository.findAll().contains(username)) {
+                    userCreationMessage.setText("Username taken, choose another.");
+                } else {
+                    User user = new User();
+                    user.setName(username);
+                    user.setPassword(pw);
+                    userRepository.save(user);
+                    loginMessage.setText("New user has been created!");
+                    primaryStage.setScene(loginScene);
+                }
+            } catch (Exception es) {
+                System.out.println(es);
+            }
+
+        });
+
+        newUserPanel.getChildren().addAll(userCreationMessage, newUsernamePanel, newPwPane, createNewUserButton);
+
+        newUserScene = new Scene(newUserPanel, 400, 200);
 
         ///////////////  Budgeting Scene
-        
         VBox newUserPanelsss = new VBox(10);
 
         HBox newUsernamePanelvvv = new HBox(10);
@@ -176,9 +200,8 @@ public class BudgetingUI extends Application {
         newUserPanelsss.getChildren().addAll(loginMEssage, newUsernamePanelvvv, calculatebudgetButton);
 
         budgetingScene = new Scene(newUserPanelsss, 500, 600);
-        
-       ///////////////
-       
+
+        ///////////////
         primaryStage.setTitle("Budjetointisovellus");
         primaryStage.setScene(loginScene);
         primaryStage.show();
@@ -190,5 +213,4 @@ public class BudgetingUI extends Application {
 //    public static void main(String[] args) {
 //        SpringApplication.run(BudgetingUI.class, args);
 //    }
-
 }

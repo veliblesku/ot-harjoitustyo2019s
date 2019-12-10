@@ -22,7 +22,6 @@ import static org.junit.Assert.*;
 public class ExpensesTest {
 
     Expenses expenses = new Expenses();
-    
 
     @Before
     public void setUp() {
@@ -30,8 +29,24 @@ public class ExpensesTest {
     }
 
     @Test
-    public void budjettiOnAlustettuOikein() {
+    public void expensesOnAlustettuOikein() {
         assertEquals(12210.1, expenses.getTotalExpenses(), 0.00001);
+    }
+
+    @Test
+    public void getExpensesToimii() {
+        assertEquals(12210.1, expenses.getTotalExpenses(), 0.00001);
+    }
+
+    @Test
+    public void setExpensesToimii() {
+        expenses.setTotalExpenses(2000.0);
+        assertEquals(2000.0, expenses.getTotalExpenses(), 0.00001);
+    }
+
+    @Test
+    public void expensesToStringToimii() {
+        assertEquals("Expenses(totalExpenses=12021.1)", expenses.toString());
     }
 
 }
