@@ -33,7 +33,7 @@ mvn package
 ```
 
 ## Checkstyle
-[checkstyle.html]()
+[checkstyle.html](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/checkstyle.html)
 ```
 mvn jxr:jxr checkstyle:checkstyle
 ```
