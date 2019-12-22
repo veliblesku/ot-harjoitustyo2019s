@@ -40,5 +40,5 @@ mvn jxr:jxr checkstyle:checkstyle
 
 ## Ohjelman voi ajaa komentoriviltä komennolla
 
-* mvn compile exec:java -Dexec.mainClass=budjetointisovellus.budjetointisovellus.domain.MainForTesting
+* mvn compile exec:java -Dexec.mainClass=budjetointisovellus.domain.Main
 
