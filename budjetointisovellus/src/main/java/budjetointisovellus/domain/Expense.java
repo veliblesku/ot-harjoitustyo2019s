@@ -27,7 +27,6 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @AllArgsConstructor
 public class Expense extends AbstractPersistable<Long> {
 
-    //private double totalExpenses;
     private String name;
     private double amount;
 

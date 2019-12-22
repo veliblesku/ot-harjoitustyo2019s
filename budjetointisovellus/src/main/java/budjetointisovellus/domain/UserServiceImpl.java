@@ -26,7 +26,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @RequiredArgsConstructor
-//@Transactional
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -37,19 +36,16 @@ public class UserServiceImpl implements UserService {
     private IncomeRepository incomeRepository;
 
     @Override
-    //@Transactional
     public User createUser(User user) {
         return userRepository.save(user);
     }
 
     @Override
-    //@Transactional
     public Expense createExpense(Expense expense) {
         return expenseRepository.save(expense);
     }
 
     @Override
-    //@Transactional
     public Income createIncome(Income income) {
         return incomeRepository.save(income);
     }
@@ -83,8 +79,9 @@ public class UserServiceImpl implements UserService {
     public List<Expense> findAllExpenses() {
         return expenseRepository.findAll();
     }
+
     @Override
-    public List<Income> findAllIncomes(){
+    public List<Income> findAllIncomes() {
         return incomeRepository.findAll();
     }
 

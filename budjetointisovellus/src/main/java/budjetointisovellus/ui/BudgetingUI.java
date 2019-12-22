@@ -75,7 +75,6 @@ public class BudgetingUI extends Application {
 
     private Long id;
     private List<Expense> expenses;
-    private boolean loggedIn = false;
     @Autowired
     private UserRepository userRepository;
 
@@ -124,28 +123,13 @@ public class BudgetingUI extends Application {
             String username = usernameInput.getText();
             String password = passwordInput.getText();
 
-            //id = userRepository.findByName(username).toString();
             System.out.println("id == " + id);
             user = userService.findUserByUsername(username);
-
-            //System.out.println("expenses " + expenses.toString());
-            //System.out.println("user  " + userRepository.findByName(username).toString());
             if (user.getPassword().equals(password) && user.getName().equals(username)) {
                 loginMessage.setText("");
                 System.out.println("haku onnistui");
                 usernameInput.setText("Tervetuloa");
-                //user = userRepository.findByName(username);
-
-                //System.out.println("user   " + user.toString());
-                //this.users = userRepository.findAll();
-                //System.out.println("user after login  =   " + user.toString());
-                //budget = FXCollections.observableArrayList();
-                //System.out.println(user.getExpenses().toString());
-                //budget.add(user.getIncomes().iterator().hasNext());
-                //System.out.println(budget.toString());
-                //System.out.println("user to string loggin =   " + user.getExpenses().toString());
                 this.expenses = userService.findAllExpenses();
-
                 System.out.println("contains  " + expenses.contains(user));
                 System.out.println("expenses size =" + expenses.size());
                 int i = 0;
@@ -154,11 +138,6 @@ public class BudgetingUI extends Application {
                 usersExpense = user.getExpenses();
                 usersIncome = user.getIncomes();
                 System.out.println("userexpense   " + usersExpense.size());
-                //System.out.println(user.toString());
-//                while (i < expenses.size()) {
-//                    System.out.println(expenses.get(i).getName() + expenses.get(i).getUser().getName());
-//                    i++;
-//                }
 
                 while (i < user.getExpenses().size()) {
                     budgetExpenses.add(usersExpense.get(i).getName() + ", " + String.valueOf(usersExpense.get(i).getAmount()));
@@ -222,20 +201,13 @@ public class BudgetingUI extends Application {
 
             String username = newUsernameInput.getText();
             String pw = newPwInput.getText();
-
-            System.out.println("username = " + username);
-            System.out.println("pw = " + pw);
-
             try {
                 if (userService.findAllUsers().contains(username)) {
                     userCreationMessage.setText("Username taken, choose another.");
                 } else {
-                    //User user = new User(username, pw, new ArrayList(), new ArrayList());
                     User user = new User(username, pw, new ArrayList<>(), new ArrayList<>());
-
                     userService.createUser(user);
                     loginMessage.setText("New user has been created!");
-                    //System.out.println("USER AFTER CREATING = " + user.toString());
                     primaryStage.setScene(loginScene);
                 }
             } catch (Exception es) {
@@ -248,10 +220,6 @@ public class BudgetingUI extends Application {
 
         newUserScene = new Scene(newUserPanel, 400, 300);
 
-        ///////////////  Budgeting Scene
-        System.out.println("Hei, ");
-
-        //System.out.println("users budget = " + user.toString());
         VBox incomeAndExpensesPanel = new VBox(30);
 
         HBox incomeAndExpensesAddPanel = new HBox(30);
@@ -269,8 +237,6 @@ public class BudgetingUI extends Application {
 
         incomePanel.getChildren().addAll(incomeNameLabel, incomeNameTextField, incomeAmountLabel, incomeAmountTextField, addIncomeButton);
 
-        //incomePanel.getChildren().addAll(incomeLabel, incomeTextField);
-        //HBox expensesPanel = new HBox(10);
         VBox expensesPanel = new VBox(10);
         expensesPanel.setPadding(new Insets(10));
         TextField expensesNameTextField = new TextField();
@@ -288,22 +254,15 @@ public class BudgetingUI extends Application {
             Double amount = Double.parseDouble(expensesAmountTextField.getText());
             Expense expense = new Expense();
             List<Expense> list = new ArrayList<>();
-
-            //list = expenseRepository.findAll();
-            //System.out.println("user = " + user.toString());
-            //Hibernate.intialize(userRepository.getOne(user.getId()));
             expense.setName(name);
             expense.setAmount(amount);
             expense.setUser(user);
             list.add(expense);
             user.setExpenses(list);
             budgetExpenses.add(name + ", " + String.valueOf(amount));
-            //list.removeAll(user1.getExpenses());
-            //user1.setExpenses(list);
 
             userService.editUser(user);
 
-            //userService.createExpense(expense);
         });
         // add income button
         addIncomeButton.setOnAction(e -> {
@@ -317,12 +276,8 @@ public class BudgetingUI extends Application {
             list.add(income);
             user.setIncomes(list);
             budgetIncomes.add(name + ", " + String.valueOf(amount));
-
-            //list.removeAll(user1.getExpenses());
-            //user1.setExpenses(list);
             userService.editUser(user);
 
-            //userService.createExpense(expense);
         });
 
         expensesPanel.getChildren().addAll(expensesNameLabel, expensesNameTextField, expensesAmountLabel, expensesAmountTextField, addExpensesButton);
@@ -334,18 +289,10 @@ public class BudgetingUI extends Application {
         ListView incomesView = new ListView(budgetIncomes);
         listPanel.getChildren().addAll(incomesView, expensesView);
 
-        // list panel
-//        int size = user.getExpenses().size();
-//        int i = 0
-//        while (i < size) {
-//            listView.getItems().add(user.getExpenses().get(i).getAmount() + ", " + user.getExpenses().get(i).getName());
-//            i++;
-//        }
         incomeAndExpensesPanel.getChildren().addAll(loginMEssage, incomeAndExpensesAddPanel, listPanel);
 
             budgetingScene = new Scene(incomeAndExpensesPanel, 500, 500);
 
-        ///////////////
         primaryStage.setTitle("Budjetointisovellus");
         primaryStage.setScene(loginScene);
         primaryStage.show();

@@ -35,22 +35,16 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="users")
+@Table(name = "users")
 public class User extends AbstractPersistable<Long> {
 
     private String name;
     private String password;
-//    @OneToOne(cascade=CascadeType.ALL)
-//    private Budget budget;
-
-    // uutta
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Income> incomes;
-    
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade=CascadeType.ALL)
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Expense> expenses;
-    //private Expense expense;
-}    
-
+}

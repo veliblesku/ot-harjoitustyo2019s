@@ -40,7 +40,6 @@ import org.springframework.context.annotation.Bean;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        //SpringApplication.run(MainForTesting.class, args);
         Application.launch(budjetointisovellus.ui.BudgetingUI.class, args);
     }
 }
