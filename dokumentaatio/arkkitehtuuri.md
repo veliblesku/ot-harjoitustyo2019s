@@ -69,3 +69,10 @@ Käyttäjä voi lisätä tuloja sisäänkirjauduttuaan. Kun käyttäjä lisää 
 
 ![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/addIncomeExpenses.png)
 
+
+
+### Ohjelman puutteet
+
+Ohjelmassa on paljon puutteita. Osa sovelluslogiikasta käytännössä toteutetaan käyttöliittymän puolella mikä on aivan turhaa. Kuitenkin kaikki tietokantakyselyt ovat ulkoistettu service luokalle. Käyttöliittymä on myös toteutettu kankeasti yhtenä palikkana, mikä on myös huono. FXML-määrittely olisi ollut parempi.
+
+Ohjelmassa on jäänyt toteuttamatta Budget-luokka, mikä alunperin oli tarkoituksena. Budget luokalla tuli olla paremmat toiminnallisuudet budgettien laskemiseen ja niiden esittämiseen. JPA-Repositoryn ja hibernate välinen kommunikointi kuitenkin tyssäsi useampien listojen käsittelyn ansiosta, jonka takia ohjelmaa on jouduttu ns. suoraviivaistamaan. 
