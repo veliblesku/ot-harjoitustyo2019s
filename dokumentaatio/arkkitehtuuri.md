@@ -22,7 +22,7 @@ Käyttöliittymä toteuttaa jonkin verran toiminnallisuuksia, mikä on huono. Su
 
 Budjetointisovelluksen luokka- ja pakkauskaavio:
 
-![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/arkkitehtivalmis.png "Logo Title Text 1")
+![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kuvat/arkkitehtivalmis.png)
 
 
 
@@ -53,21 +53,21 @@ Tässä hieman sovelluksen pääasiallisia toiminnalisuuksia. Yleisesti ottaen k
 Sovelluksen käynnistyessä on mahdollisuus rekisteröityä "create new user" panikkeen takaa.
 Kun tekstikenttiin syötetään halutut arvot ja painetaan painiketta "create" sovellus käynnistää seuraavanlaisen toiminnon:
 
-![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/rekisteroityminen.png)
+![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kuvat/rekisteroityminen.png)
 
 
 #### Käyttäjän kirjautuminen
 
 Kirjautuessa tapahtuma käynnistetään "login" painikkeella. Tällöin tapahtuu seuraavaa.
 
-![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kayttajankirjautuminen.png)
+![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kuvat/kayttajankirjautuminen.png)
 
 Kun kirjautuminen on onnistunut asetetaan käyttöliittymässä näkymä "budgetingScene".
 
 #### Tulojen ja menojen lisääminen
 Käyttäjä voi lisätä tuloja sisäänkirjauduttuaan. Kun käyttäjä lisää uuden menon tai tulon, lisätään näkymän alapuolella olevaan listaan. Tässä on käytetty käyttöliittymän omaa ObservatedList oliota, jonka avulla listaa voidaan päivittää reaaliajassa.
 
-![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/addIncomeExpenses.png)
+![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kuvat/addIncomeExpenses.png)
 
 
 
