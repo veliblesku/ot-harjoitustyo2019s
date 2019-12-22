@@ -20,5 +20,5 @@
 | 22.12. | 11h |Hibernate kuntoon, ohjelman lopullinen konffaus, dokumentaatiot kuntoon. Githubin viilaus, tietokannan opitmointi       |
 
 
-| Yht. | 114h |                                                                            |
+| Yht. | 114h |                                                                            
 
