@@ -36,3 +36,8 @@ Palaat takaisin kirjautumissivulle. Syötä kohtaan "username", sekä salasana k
 Nyt olet kirjautunut sisään. Syötä nyt tulojasi ja menojasi sovellukseen. Tuloille ja menoille on määriteltävä nimi sekä määrä. Syötä arvot oikeisiin sarakkeisiin, jonka jälkeen löydät ne alempana löytyvältä listalta.
 
 ![alt_text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kuvat/ohje0.png)
+
+
+### Uloskirjaus
+
+Käyttäjä kirjataan ulos kun ohjelma suljetaan.
