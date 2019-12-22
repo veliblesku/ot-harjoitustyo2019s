@@ -196,16 +196,16 @@ public class BudgetingUI extends Application {
         loginScene = new Scene(loginPane, 400, 200);
 
         ///// New User Scene__ __ __ 
-        VBox newUserPanel = new VBox(10);
+        VBox newUserPanel = new VBox(40);
 
-        HBox newUsernamePanel = new HBox(10);
+        HBox newUsernamePanel = new HBox(20);
         newUsernamePanel.setPadding(new Insets(10));
         TextField newUsernameInput = new TextField();
         Label newUsernameLabel = new Label("username");
         newUsernameLabel.setPrefWidth(100);
         newUsernamePanel.getChildren().addAll(newUsernameLabel, newUsernameInput);
 
-        HBox newPwPane = new HBox(10);
+        HBox newPwPane = new HBox(20);
         newPwPane.setPadding(new Insets(10));
         TextField newPwInput = new TextField();
         Label newPwLabel = new Label("password");
@@ -216,7 +216,7 @@ public class BudgetingUI extends Application {
 
         Button createNewUserButton = new Button("create");
 
-        createNewUserButton.setPadding(new Insets(10));
+        createNewUserButton.setPadding(new Insets(20));
 
         createNewUserButton.setOnAction(e -> {
 
@@ -246,21 +246,20 @@ public class BudgetingUI extends Application {
 
         newUserPanel.getChildren().addAll(userCreationMessage, newUsernamePanel, newPwPane, createNewUserButton);
 
-        newUserScene = new Scene(newUserPanel, 400, 200);
+        newUserScene = new Scene(newUserPanel, 400, 300);
 
         ///////////////  Budgeting Scene
         System.out.println("Hei, ");
 
         //System.out.println("users budget = " + user.toString());
-        VBox incomeAndExpensesPanel = new VBox(10);
+        VBox incomeAndExpensesPanel = new VBox(30);
 
-        HBox incomeAndExpensesAddPanel = new HBox(60);
+        HBox incomeAndExpensesAddPanel = new HBox(30);
 
         VBox incomePanel = new VBox(10);
-
         newUsernamePanel.setPadding(new Insets(10));
         Label incomeNameLabel = new Label("income name");
-        incomeNameLabel.setPrefWidth(60);
+        incomeNameLabel.setPrefWidth(100);
         TextField incomeNameTextField = new TextField();
         Label incomeAmountLabel = new Label("income");
         incomeAmountLabel.setPrefWidth(60);
@@ -276,7 +275,7 @@ public class BudgetingUI extends Application {
         expensesPanel.setPadding(new Insets(10));
         TextField expensesNameTextField = new TextField();
         Label expensesNameLabel = new Label("expenses name");
-        expensesNameLabel.setPrefWidth(60);
+        expensesNameLabel.setPrefWidth(100);
         TextField expensesAmountTextField = new TextField();
         Label expensesAmountLabel = new Label("expenses amount");
         expensesAmountLabel.setPrefWidth(60);
@@ -344,7 +343,7 @@ public class BudgetingUI extends Application {
 //        }
         incomeAndExpensesPanel.getChildren().addAll(loginMEssage, incomeAndExpensesAddPanel, listPanel);
 
-        budgetingScene = new Scene(incomeAndExpensesPanel, 600, 600);
+            budgetingScene = new Scene(incomeAndExpensesPanel, 500, 500);
 
         ///////////////
         primaryStage.setTitle("Budjetointisovellus");
