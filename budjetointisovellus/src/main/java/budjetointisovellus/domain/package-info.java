@@ -8,4 +8,4 @@
  * Luokkien rakennus sekä repot
  */
 
-package budjetointisovellus.budjetointisovellus.domain;
+package budjetointisovellus.domain;

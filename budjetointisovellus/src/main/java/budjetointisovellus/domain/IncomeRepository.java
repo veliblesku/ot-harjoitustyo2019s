@@ -3,16 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package budjetointisovellus.budjetointisovellus.domain;
+package budjetointisovellus.domain;
 
 /**
  *
  * @author blesku
  */
-import budjetointisovellus.budjetointisovellus.domain.User;
+import budjetointisovellus.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-
-    User findByName(String name);
+public interface IncomeRepository extends JpaRepository<Income, Long> {
+    //User findByName(String name);
 }
