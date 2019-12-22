@@ -43,3 +43,14 @@ ID, name, amount, user
 INCOMES
 ID, name, amount, user
 
+
+### Toiminnallisuudet
+
+Tässä hieman sovelluksen pääasiallisia toiminnalisuuksia.
+
+
+#### Käyttäjän kirjautuminen
+
+![alt text](https://github.com/veliblesku/ot-harjoitustyo2019s/blob/master/dokumentaatio/kayttajankirjautuminen.png)
+
+
